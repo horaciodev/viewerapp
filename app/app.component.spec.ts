@@ -1,5 +1,6 @@
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './home/welcome.component';
 
@@ -16,17 +17,17 @@ describe('AppComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent , WelcomeComponent],
-      imports: [RouterModule, AppRoutingModule]
+      imports: [RouterModule, AppRoutingModule, RouterTestingModule]
     })
     .compileComponents()
-    .then(()=>{
+  }));
+
+  beforeEach(()=>{
       fixture = TestBed.createComponent(AppComponent);
       comp = fixture.componentInstance;
-      de = fixture.debugElement.query(By.css('navbar-brand'));
+      de = fixture.debugElement.query(By.css('.navbar-brand'));
       el = de.nativeElement;
-    })
-
-  }));
+  });
 
 /*
   beforeEach(() => {
@@ -37,7 +38,10 @@ describe('AppComponent', function () {
   });
 */
 
-  it('should create component', () => expect(comp).toBeDefined() );
+  it('should create component', () => {
+    console.log(comp);
+    expect(comp).toBeTruthy();
+   });
 
   it('should have expected navbar title', () => {
     fixture.detectChanges();

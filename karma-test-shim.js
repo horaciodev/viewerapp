@@ -30,8 +30,8 @@ function isBuiltFile(path) {
 }
 
 var allSpecFiles = Object.keys(window.__karma__.files)
-  .filter(isSpecFile)
-  .filter(isBuiltFile);
+  .filter(isSpecFile);
+  //.filter(isBuiltFile);
 
 System.config({
   baseURL: 'base',
@@ -53,7 +53,7 @@ System.config({
 });
 
 System.import('systemjs.config.js')
-  .then(importSystemJsExtras)
+  //.then(importSystemJsExtras)
   .then(initTestBed)
   .then(initTesting);
 
