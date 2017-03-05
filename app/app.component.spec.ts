@@ -46,6 +46,6 @@ describe('AppComponent', function () {
   it('should have expected navbar title', () => {
     fixture.detectChanges();
     const navBarBrand = de.nativeElement;
-    expect(navBarBrand.innerText).toContain('Acme product Management');
+    expect(navBarBrand.innerText).toContain('Error Viewer App');
   });
 });
